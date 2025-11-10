@@ -457,7 +457,7 @@ footer {
     }
 
     /* Afficher le hamburger et cacher la navigation desktop */
-    .nav-links, #theme-switcher-desktop {
+    .nav-links, .theme-switcher.desktop {
         display: none;
     }
     .hamburger {
