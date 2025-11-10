@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRUDENCIO al Carino Noël - Développeur Web</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">PRUDENCIO AL CARINO NOËL</a>
+            </div>
+            <div class="nav-right">
+                <ul>
+                    <li><a href="#apropos">A propos</a></li>
+                    <li><a href="#projets">Projets</a></li>
+                    <li><a href="#competences">Competences</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button id="theme-switcher" class="theme-switcher">☀️</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Je suis Prudencio al Carino, Analyste SOC et Administrateur Cybersécurité</h1>
+                <a href="#projets" class="cta-button">Voir mes projets</a>
+            </div>
+            <div class="hero-image">
+                <img src="cybersecurity_analyst.webp" alt="Illustration développeur">
+            </div>
+        </section>
+
+        <section id="apropos">
+            <h2>A propos</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="Photo_infographie.png" alt="Photo de profil de PRUDENCIO al Carino Noël" class="profile-pic">
+                </div>
+                <div class="about-text">
+                    <p>En formation en Réseau Mobilité et Sécurité à PIGIER, et passionné par l'informatique, je suis spécialisé en administration Cybersécurité avec des compétences avancées en maintenance et Réseau informatique et en sécurité opérationnelle. J'ai acquis une solide expérience dans la gestion des supports informatiques et des logiciels ainsi que dans la mise en place de stratégies de sécurité...</p>
+                    <a href="CV_PRUDENCIO_al Carino Noel.pdf" class="cta-button" download>Télécharger mon CV</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="projets">
+            <h2>Mes Projets</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="xdr-dashboard.png" alt="Plateforme SOC">
+                    <div class="project-info">
+                        <p>Projet de construction d'une plateforme SOC (DOM24 Security), incluant l'étude comparative des solutions, l'analyse des services requis, le Proof of Concept et la mise en production.</p>
+                        <div class="tags">#Wazuh, #IRIS, #Shuffle, #MISP</div>
+                        <a href="#">Voir</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="the-power-of-splunk-wherever-you-are.png" alt="Homelab Active Directory & SIEM">
+                    <div class="project-info">
+                        <p>Installation et configuration d'un Homelab (Windows Server 2019, Windows 10, Linux). Analyse de logs (bruteforce AD DC ) et création d'alertes via le SIEM Splunk après installation de Sysmon.</p>
+                        <div class="tags">#ActiveDirectory, #Splunk, #SIEM, #WindowsServer, #Sysmon</div>
+                        <a href="#">Voir</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <img src="firewall.png" alt="Sécurisation Infrastructure Fortinet">
+                    <div class="project-info">
+                        <p>Conception et soutenance d'un projet de sécurisation d'infrastructure (design d'architecture, intégration des configurations, spécifications techniques) à l'aide d'un firewall Fortinet.</p>
+                        <div class="tags">#Fortinet, #Firewall, #SécuritéRéseau, #Architecture</div>
+                        <a href="#">Voir</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="competences">
+            <h2>Mes Compétences</h2>
+            <div class="skills-content">
+                <div class="skills-list">
+                    <h3>Hard Skills</h3>
+                    <ul>
+                        <li>Compétences Réseau (switching, configuration, protocoles)</li>
+                        <li>Compétences Systèmes (Windows, Linux, Active Directory)</li>
+                        <li>Outils Cybersécurité (Firewall Fortinet, Splunk, Wazuh, Wireshark)</li>
+                        <li>Programmation (Python, C++, C)</li>
+                        <li>Suite Office, Google Drive, Outlook</li>
+                        <li>Maintenance logicielle et matérielle</li>
+                        <li>Audit</li>
+                        <li>APP security</li>
+                    </ul>
+                </div>
+                <div class="skills-list">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Gestion de projet</li>
+                        <li>Resolution de probleme</li>
+                        <li>Adaptabilité</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Vous avez un projet en tête ? N'hésitez pas à me contacter</h2>
+            <div class="contact-container">
+                <div class="contact-details">
+                    <p><strong>Email:</strong> prudencioalcarino@gmail.com</p>
+                    <p><strong>Téléphone:</strong> +2290194719357 / 0161171338</p>
+                </div>
+                <form id="contact-form" action="https://formspree.io/f/mwpaejwn" method="POST">
+                    <div class="form-group">
+                        <label for="prenom">Votre prénom</label>
+                        <input type="text" id="prenom" name="prenom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nom">Votre nom</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sujet">Votre sujet</label>
+                        <input type="text" id="sujet" name="sujet" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Votre message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button">Envoyer</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Designed by Prudencio al Carino</p>
+        <p>&copy; Tous droits réservés - 2025</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

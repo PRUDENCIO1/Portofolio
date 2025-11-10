@@ -1,0 +1,184 @@
+Projet : Portfolio Personnel en Ligne
+Ce document détaille la structure et les composants nécessaires pour reproduire le site web "Portfolio Personnel en Ligne", conformément au brief du projet  et au prototype visuel fourni.
+
+L'objectif principal est de mettre en pratique les compétences en HTML, CSS et JavaScript pour créer un site d'une seule page présentant informations personnelles, compétences et projets.
+
+
+🚀 Technologies Requises
+HTML5 : Pour la structure sémantique du contenu.
+
+CSS3 : Pour la mise en forme, le design et la disposition (layout).
+
+
+JavaScript (ES6+) : Pour l'interactivité , notamment la validation de formulaire.
+
+
+🏗️ Structure du Site (HTML)
+Le site est conçu comme une page unique (One-Page), où les liens de navigation font défiler l'utilisateur vers les sections correspondantes. La structure doit suivre cet ordre :
+
+Header (En-tête)
+
+Section Accueil (Hero)
+
+Section "À propos"
+
+Section "Mes Projets"
+
+Section "Mes Compétences"
+
+Section "Contact"
+
+Footer (Pied de page)
+
+🧩 Composants Détaillés (Section par Section)
+Voici la description précise de chaque section, basée sur le prototype.
+
+1. Header (Navigation)
+
+Logo/Titre : Le nom et prénom de l'utilisateur (ex: "NOM + PRENOM").
+
+Liens de navigation : Une liste de liens pointant vers les ancres des sections :
+
+
+A propos  (doit pointer vers #apropos)
+
+
+Projets  (doit pointer vers #projets)
+
+
+Competences  (doit pointer vers #competences)
+
+
+Contact  (doit pointer vers #contact)
+
+2. Section Accueil (Hero)
+
+Visuel : Une image d'illustration (celle des développeurs dans le prototype).
+
+
+Titre principal : "Je suis [Prénom], Développeur en devenir passionné par le web et le design!".
+
+
+Bouton (Call-to-Action) : "Voir mes projets". Ce bouton doit déclencher un défilement vers la section "Mes Projets".
+
+3. Section "À propos" (ID: apropos)
+
+Titre de section : "A propos".
+
+Contenu : Divisé en deux colonnes (visuel et texte).
+
+
+Visuel : Une photo de profil de l'utilisateur, de forme circulaire.
+
+Texte de présentation :
+
+Paragraphe 1 : "Je m'appelle [Nom , passionné par la création de sites web modernes et interactifs".
+
+Paragraphe 2 : "Je suis actuellement étudiant(e) en développement web, et je cherche à améliorer mes compétences en JavaScript, HTML et CSS.".
+
+Paragraphe 3 : "J'adore transformer mes idées en projets concrets et expérimenter avec les nouvelles technologies.".
+
+
+Bouton : "Télécharger mon CV"  (doit être un lien vers un fichier PDF du CV).
+
+4. Section "Mes Projets" (ID: projets)
+
+Titre de section : "Mes Projets".
+
+Grille de Projets : Une grille contenant trois cartes "projet".
+
+Structure d'une carte projet (à répéter 3x) :
+
+(Image ou visuel du projet - suggéré)
+
+
+Description : "Un mini-jeu interactif en JavaScript qui utilise des événements DOM.".
+
+
+Tags : "#html, #css, #js".
+
+
+
+
+Lien : "Voir"  (doit pointer vers le projet ou son dépôt).
+
+
+
+5. Section "Mes Compétences" (ID: competences)
+
+Titre de section : "Mes Compétences".
+
+Contenu : Divisé en deux listes de compétences.
+
+
+Hard Skills:
+
+HTML 
+
+CSS 
+
+JavaScript 
+
+VS Code 
+
+
+Soft Skills:
+
+Gestion de projet 
+
+Resolution de probleme 
+
+Adaptabilité 
+
+6. Section "Contact" (ID: contact)
+
+Titre de section : "Vous avez un projet en tête ? N'hésitez pas à me contacter".
+
+
+Formulaire de contact : Doit contenir les champs suivants:
+
+Champ "Votre prénom" 
+
+Champ "Votre nom" 
+
+Champ "Votre sujet" 
+
+Zone de texte (<textarea>) pour le message.
+
+Bouton d'envoi : "Envoyer".
+
+7. Footer (Pied de page)
+
+Ligne 1 (Crédits) : "Designed by [prenom] with HTML CSS JS".
+
+
+Ligne 2 (Copyright) : "Tous droits réservés-2025".
+
+⚡ Fonctionnalités (JavaScript)
+Le fichier script.js doit gérer les fonctionnalités interactives suivantes, comme requis par le brief:
+
+
+Validation du formulaire de contact:
+
+Vérifier que les champs "prénom", "nom", "sujet" et "message" ne sont pas vides avant l'envoi.
+
+(Optionnel) Vérifier que le format est valide (ex: pas de chiffres dans les noms).
+
+Effets de survol (Hover) :
+
+Appliquer des effets de style (ex: zoom, ombre) au survol des cartes "projet".
+
+Défilement fluide (Smooth Scrolling) :
+
+Lors d'un clic sur un lien de navigation (ex: "A propos"), la page doit défiler fluidement vers la section correspondante au lieu d'un saut brusque.
+
+🏁 Instructions de Lancement
+Clonez ce dépôt (ou créez un dossier de projet).
+
+Créez les fichiers index.html, style.css, et script.js.
+
+Structurez le fichier index.html en suivant les 7 sections décrites ci-dessus.
+
+Liez vos fichiers style.css et script.js à index.html.
+
+Ouvrez le fichier index.html dans votre navigateur web.

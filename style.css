@@ -1,0 +1,443 @@
+/* --- 1. Variables Globales et Configuration --- */
+
+/* Utiliser des variables CSS (custom properties) 
+  permet de changer facilement la palette de couleurs du site.
+*/
+:root {
+    --bg-dark-navy: #0a192f;      /* Arrière-plan principal (très sombre) */
+    --bg-light-navy: #112240;     /* Arrière-plan secondaire (cartes, etc.) */
+    --text-lightest: #ccd6f6;    /* Texte principal et titres */
+    --text-light: #a8b2d1;       /* Texte secondaire (paragraphes) */
+    --text-dark: #8892b0;        /* Texte plus sombre (labels) */
+    --accent-color: #64ffda;     /* Couleur d'accent (turquoise/menthe) */
+    
+    --font-heading: 'Poppins', sans-serif; /* Police pour les titres */
+    --font-body: 'Roboto', sans-serif;       /* Police pour le corps du texte */
+    
+    --transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* Light theme variables */
+body.light-theme {
+    --bg-dark-navy: #f0f2f5;      /* Light gray background */
+    --bg-light-navy: #ffffff;     /* White background for cards */
+    --text-lightest: #1c1e21;    /* Dark text for headings */
+    --text-light: #54575a;       /* Medium-dark text for paragraphs */
+    --text-dark: #8a8d91;        /* Lighter text for labels */
+    --accent-color: #007bff;     /* Blue accent color */
+}
+
+/* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Active le défilement fluide */
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-dark-navy);
+    color: var(--text-light);
+    line-height: 1.6;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* --- 2. Styles Généraux (Titres, Liens, Boutons) --- */
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-lightest);
+    margin-bottom: 1.5rem;
+}
+
+/* MODIFICATION APPLIQUÉE : 
+   Taille du H1 réduite pour être moins imposante. 
+*/
+h1 {
+    font-size: clamp(2rem, 4vw, 3rem); /* Fortement réduit */
+    line-height: 1.2; /* Améliore l'espacement entre les lignes */
+}
+
+h2 {
+    font-size: 2.5rem;
+    border-bottom: 2px solid var(--accent-color); /* Ligne sous les titres de section */
+    display: inline-block; /* Pour que la bordure s'adapte au texte */
+    padding-bottom: 5px;
+}
+
+p {
+    margin-bottom: 1rem;
+    max-width: 70ch; /* Améliore la lisibilité */
+}
+
+a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+a:hover {
+    color: var(--text-lightest);
+    filter: brightness(1.2);
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Conteneur principal pour centrer le contenu */
+section {
+    padding: 6rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Style du bouton d'action (CTA) */
+.cta-button {
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid var(--accent-color);
+    color: var(--accent-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 5px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.cta-button:hover {
+    background-color: rgba(100, 255, 218, 0.1);
+    color: var(--accent-color);
+}
+
+/* --- 3. Header & Navigation --- */
+
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+    background-color: rgba(10, 25, 47, 0.85); /* Fond sombre avec transparence */
+    backdrop-filter: blur(10px); /* Effet de flou */
+    padding: 1.5rem 5%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* MODIFICATION APPLIQUÉE : 
+   Poids et taille du logo réduits pour un look plus fin.
+*/
+nav .logo a {
+    font-family: var(--font-heading);
+    font-weight: 600;  /* Réduit de 700 */
+    font-size: 1.1rem;   /* Réduit de 1.25rem */
+    color: var(--text-lightest);
+    letter-spacing: 0.5px; /* Ajoute un peu d'aération */
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 2rem;
+}
+
+nav ul li a {
+    font-family: var(--font-body);
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    color: var(--accent-color);
+}
+
+.theme-switcher {
+    background: none;
+    border: none;
+    color: var(--text-lightest);
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-left: 2rem;
+}
+
+/* --- 4. Section Hero (#hero) --- */
+
+#hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    min-height: 80vh;
+}
+
+#hero .hero-content {
+    flex: 2;
+}
+
+#hero .hero-image {
+    flex: 1;
+    max-width: 400px;
+}
+
+#hero .hero-image img {
+    border-radius: 8px;
+    opacity: 0.8;
+}
+
+/* --- 5. Section "A propos" (#apropos) --- */
+
+#apropos .about-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+#apropos .about-image {
+    flex-basis: 300px;
+}
+
+#apropos .profile-pic {
+    border-radius: 50%;
+    border: 4px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+}
+
+#apropos .about-text {
+    flex: 1;
+}
+
+/* --- 6. Section "Mes Projets" (#projets) --- */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+}
+
+.project-card {
+    background-color: var(--bg-light-navy);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    overflow: hidden; /* Pour que l'image respecte le border-radius */
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Effet de "soulèvement" */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Assure que l'image couvre la zone */
+    opacity: 0.9;
+}
+
+.project-card .project-info {
+    padding: 1.5rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card .tags {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    margin: 1rem 0;
+}
+
+.project-card .project-info a {
+    font-weight: 600;
+    align-self: flex-start;
+}
+
+/* --- 7. Section "Compétences" (#competences) --- */
+
+.skills-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.skills-list {
+    flex: 1;
+}
+
+.skills-list h3 {
+    color: var(--accent-color);
+    margin-bottom: 1.5rem;
+}
+
+.skills-list ul {
+    list-style: none;
+}
+
+.skills-list li {
+    background-color: var(--bg-light-navy);
+    padding: 0.75rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    border-left: 3px solid var(--accent-color);
+    transition: var(--transition);
+}
+
+.skills-list li:hover {
+    background-color: #1a3a63;
+    transform: translateX(5px);
+}
+
+
+/* --- 8. Section "Contact" (#contact) --- */
+
+#contact h2 {
+    text-align: center;
+    border: none;
+    margin-bottom: 3rem;
+}
+
+.contact-container {
+    display: flex;
+    gap: 3rem;
+}
+
+.contact-details {
+    flex-basis: 40%;
+}
+
+.contact-details p {
+    font-size: 1.1rem;
+}
+
+#contact-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+#contact-form input,
+#contact-form textarea {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--bg-light-navy);
+    border: 1px solid var(--text-dark);
+    color: var(--text-lightest);
+    border-radius: 5px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+#contact-form textarea {
+    resize: vertical; /* Permet de redimensionner verticalement */
+}
+
+/* --- 9. Footer --- */
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--bg-light-navy);
+    color: var(--text-dark);
+    font-size: 0.9rem;
+}
+
+/* --- 10. Responsive (Mobile & Tablet) --- */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+
+    /* Menu de navigation (simple empilement) */
+    nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    nav ul {
+        justify-content: center;
+        flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
+        gap: 0.5rem;
+    }
+    nav ul li {
+        margin-left: 0.5rem;
+    }
+
+    /* Sections principales */
+    section {
+        padding: 4rem 5%;
+    }
+
+    #hero {
+        flex-direction: column-reverse; /* Image en haut, texte en bas */
+        text-align: center;
+        gap: 2rem;
+    }
+
+    #apropos .about-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .skills-content {
+        flex-direction: column;
+    }
+
+    .contact-container {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    nav ul li {
+        margin-left: 0;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+}
