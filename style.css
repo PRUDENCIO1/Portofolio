@@ -406,12 +406,15 @@ footer {
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
 
-.mobile-nav a {
+
+.mobile-nav a, .mobile-nav .theme-switcher {
     text-align: center;
     padding: 1rem;
     color: var(--text-lightest);
     border-bottom: 1px solid var(--bg-dark-navy);
 }
+
+
 
 .mobile-nav a:last-child {
     border-bottom: none;

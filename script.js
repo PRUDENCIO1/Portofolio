@@ -1,28 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Theme switcher logic
-    const themeSwitcher = document.getElementById('theme-switcher');
+    const themeSwitchers = document.querySelectorAll('.theme-switcher');
     const body = document.body;
 
     // Set initial theme based on user's preference or default to dark
-    if (localStorage.getItem('theme') === 'light') {
-        body.classList.add('light-theme');
-        themeSwitcher.textContent = '🌙';
-    } else {
-        body.classList.remove('light-theme');
-        themeSwitcher.textContent = '☀️';
-    }
-
-    themeSwitcher.addEventListener('click', () => {
-        body.classList.toggle('light-theme');
-        // Save theme preference
-        if (body.classList.contains('light-theme')) {
-            themeSwitcher.textContent = '🌙';
+    const updateTheme = () => {
+        const isLight = body.classList.contains('light-theme');
+        themeSwitchers.forEach(switcher => {
+            switcher.textContent = isLight ? '🌙' : '☀️';
+        });
+        if (isLight) {
             localStorage.setItem('theme', 'light');
-        } else {
-            themeSwitcher.textContent = '☀️';
+        }
+        else {
             localStorage.setItem('theme', 'dark');
         }
+    };
+
+    if (localStorage.getItem('theme') === 'light') {
+        body.classList.add('light-theme');
+    }
+    updateTheme();
+
+
+    themeSwitchers.forEach(switcher => {
+        switcher.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            updateTheme();
+        });
     });
+
 
     // Hamburger menu logic
     const hamburger = document.querySelector('.hamburger');
