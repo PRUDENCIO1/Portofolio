@@ -1,8 +1,4 @@
-/* --- 1. Variables Globales et Configuration --- */
 
-/* Utiliser des variables CSS (custom properties) 
-  permet de changer facilement la palette de couleurs du site.
-*/
 :root {
     --bg-dark-navy: #0a192f;      /* Arrière-plan principal (très sombre) */
     --bg-light-navy: #112240;     /* Arrière-plan secondaire (cartes, etc.) */
@@ -154,21 +150,21 @@ nav .logo a {
     align-items: center;
 }
 
-nav ul {
+.nav-links {
     display: flex;
     list-style: none;
 }
 
-nav ul li {
+.nav-links li {
     margin-left: 2rem;
 }
 
-nav ul li a {
+.nav-links li a {
     font-family: var(--font-body);
     font-weight: 500;
 }
 
-nav ul li a:hover {
+.nav-links li a:hover {
     color: var(--accent-color);
 }
 
@@ -380,37 +376,63 @@ footer {
 
 /* --- 10. Responsive (Mobile & Tablet) --- */
 
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
-    }
-    h2 {
-        font-size: 2rem;
-    }
+/* Styles pour le menu hamburger */
+.hamburger {
+    display: none; /* Caché par défaut */
+    font-size: 2rem;
+    background: none;
+    border: none;
+    color: var(--text-lightest);
+    cursor: pointer;
+    z-index: 11; /* Pour être au-dessus de la nav mobile */
+    transition: transform 0.3s ease;
+}
 
-    /* Menu de navigation (simple empilement) */
-    nav {
-        flex-direction: column;
-        gap: 1rem;
-    }
-    nav ul {
-        justify-content: center;
-        flex-wrap: wrap; /* Permet aux éléments de passer à la ligne */
-        gap: 0.5rem;
-    }
-    nav ul li {
-        margin-left: 0.5rem;
-    }
+.hamburger:hover {
+    transform: scale(1.1);
+}
 
-    /* Sections principales */
-    section {
-        padding: 4rem 5%;
-    }
 
+/* Styles pour la navigation mobile */
+.mobile-nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: var(--bg-light-navy);
+    position: absolute;
+    top: 100%; /* Se positionne juste en dessous du header */
+    left: 0;
+    padding: 1rem 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.mobile-nav a {
+    text-align: center;
+    padding: 1rem;
+    color: var(--text-lightest);
+    border-bottom: 1px solid var(--bg-dark-navy);
+}
+
+.mobile-nav a:last-child {
+    border-bottom: none;
+}
+
+/* --- Media Queries --- */
+
+@media (max-width: 1024px) {
+    /* Ajustements pour tablettes */
     #hero {
-        flex-direction: column-reverse; /* Image en haut, texte en bas */
+        flex-direction: column-reverse;
         text-align: center;
         gap: 2rem;
+    }
+
+    #hero .hero-content {
+        flex: 1;
+    }
+
+    #hero .hero-image {
+        max-width: 350px; /* Image légèrement plus petite sur tablette */
     }
 
     #apropos .about-content {
@@ -418,26 +440,51 @@ footer {
         text-align: center;
     }
 
-    .skills-content {
-        flex-direction: column;
-    }
-
-    .contact-container {
+    .skills-content, .contact-container {
         flex-direction: column;
     }
 }
 
-@media (max-width: 480px) {
-    nav ul {
-        flex-direction: column;
-        align-items: center;
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.2rem;
+    }
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    /* Afficher le hamburger et cacher la navigation desktop */
+    .nav-links, .theme-switcher {
+        display: none;
+    }
+    .hamburger {
+        display: block;
+    }
+
+    /* Ajustement du header pour le logo et le hamburger */
+    nav {
+        justify-content: space-between;
+    }
+    .nav-right {
         gap: 1rem;
     }
-    nav ul li {
-        margin-left: 0;
+
+    /* Afficher la navigation mobile lorsqu'elle est active */
+    .mobile-nav.active {
+        display: flex;
     }
-    
+
+    section {
+        padding: 4rem 5%;
+    }
+}
+
+@media (max-width: 480px) {
     .projects-grid {
         grid-template-columns: 1fr; /* Une seule colonne sur mobile */
+    }
+
+    #contact-form {
+        padding: 1rem;
     }
 }
