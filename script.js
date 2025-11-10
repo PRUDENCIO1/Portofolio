@@ -1,18 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Theme switcher logic
-    const themeSwitchers = document.querySelectorAll('.theme-switcher');
+    const themeSwitcherDesktop = document.getElementById('theme-switcher-desktop');
+    const themeSwitcherMobile = document.getElementById('theme-switcher');
     const body = document.body;
 
-    // Set initial theme based on user's preference or default to dark
     const updateTheme = () => {
         const isLight = body.classList.contains('light-theme');
-        themeSwitchers.forEach(switcher => {
-            switcher.textContent = isLight ? '🌙' : '☀️';
-        });
+        const icon = isLight ? '🌙' : '☀️';
+        themeSwitcherDesktop.textContent = icon;
+        themeSwitcherMobile.textContent = icon;
         if (isLight) {
             localStorage.setItem('theme', 'light');
-        }
-        else {
+        } else {
             localStorage.setItem('theme', 'dark');
         }
     };
@@ -22,14 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     updateTheme();
 
-
-    themeSwitchers.forEach(switcher => {
-        switcher.addEventListener('click', () => {
-            body.classList.toggle('light-theme');
-            updateTheme();
-        });
+    themeSwitcherDesktop.addEventListener('click', () => {
+        body.classList.toggle('light-theme');
+        updateTheme();
     });
 
+    themeSwitcherMobile.addEventListener('click', () => {
+        body.classList.toggle('light-theme');
+        updateTheme();
+    });
 
     // Hamburger menu logic
     const hamburger = document.querySelector('.hamburger');
